@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th = "http://www.thymeleaf.org">
+    <head>
+        <!--<meta http-equiv="Content-Type" content="application/json; charset=UTF-8" />-->
+
+        <title>Garage</title>
+    </head>
+    <body> 
+        <div class="container">
+            <div th:if="${not #lists.isEmpty(tools)}">
+                <h3>
+                    Tools list
+                </h3>
+                <br>
+                <a th:href ="@{tools/add}"> Add new Tool</a>
+                <br>
+                <table class="table table-striped " border = 2 cellpadding ="2">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Destroy</th>
+                        <th colspan="2" align="center">Options</th>
+                    </tr>
+                    <tr th:each="tool : ${tools}">
+                        <td th:text ="${tool.id}" ></td>
+                        <td th:text ="${tool.name}"></td>
+                        <td th:text ="${tool.damaged} + ' %'" ></td>
+                        <td><a href="tools/update-tool?id=${tool.id}"> EDIT </a></td>
+                        <td><a href="tools/delete-tool?id=${tool.id}"> DELETE </a> </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </body>
+</html>
+

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!--<meta http-equiv="Content-Type" content="application/json; charset=UTF-8" />-->
+
+    </head>
+    <body> 
+        <h3>
+            Enter the tool values 
+        </h3>
+        <form th:action ="@{tools/add}"
+              th:object ="${tool}" method="post">
+
+            <table class="table table-striped " border = 2 cellpadding ="2">
+
+                <tr>
+                    <th>Name</th>
+                    <th><input type="text" th:field =" *{name}"
+                </tr>
+                <tr>
+                    <th>Destroy</th>
+                    <th><input type="text" th:field =" *{damaged}"
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <th><input type="text" th:field =" *{price}"
+                </tr>
+                <tr>
+                    <th colspan="2" align="center"><button type="sumbit" value ="Save"/>Save</button></th>
+
+                </tr>
+            </table>
+
+        </form>
+
+
+
+    </body>
+</html>
